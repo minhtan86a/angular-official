@@ -1,0 +1,31 @@
+
+<h3>Example</h3>
+<button (click)="updateUser()">Update</button>
+<button (click)="destroy()">Destroy Child</button>
+<br />
+<br />
+<app-child *ngIf="!isChildDestroyed" [userName]="userName">
+    <div #contentWrapper>foo</div> <!-- <== Add this -->
+</app-child>
+
+<div *ngIf="isChildDestroyed">Child component is destroyed! </div>
+<hr/>
+<h3>Noted</h3>
+<pre>
+    Step 1: first-time hooks, the triggered hooks are:
+        onChanges
+        onInit
+        doCheck
+        afterContentInit
+        afterContentChecked
+        afterViewInit
+        afterViewChecked
+        onDestroy : This will be called once the component is removed from DOM
+
+    Step 2: in every change detection cycle hooks, the triggered hooks are:
+        onChanges
+        doCheck
+        afterContentChecked
+        afterViewChecked
+</pre>
+<img src="../../../../assets/lifecycle-hook.png" />

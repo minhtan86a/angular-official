@@ -1,0 +1,3 @@
+<!-- <app-sizer [(size)]="fontSizePx"></app-sizer> -->
+<app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>

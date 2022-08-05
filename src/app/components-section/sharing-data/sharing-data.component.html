@@ -1,0 +1,5 @@
+<img src="../../../assets/input-output-diagram.svg"/>
+<app-item-detail [item]="currentItem" (newItemEvent)="addItem($event)"></app-item-detail>
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>
