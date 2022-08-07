@@ -25,6 +25,9 @@ import { SharingDataComponent } from './components-section/sharing-data/sharing-
 import { ItemDetailComponent } from './components-section/sharing/item-detail/item-detail.component';
 import { SizerComponent } from './templates-section/sizer/sizer.component';
 import { SizerParentComponent } from './templates-section/sizer-parent/sizer-parent.component';
+import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.component';
+import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
+import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { SizerParentComponent } from './templates-section/sizer-parent/sizer-par
     SharingDataComponent,
     ItemDetailComponent,
     SizerComponent,
-    SizerParentComponent
+    SizerParentComponent,
+    JsTutorialComponent,
+    ArrayTutorialComponent,
+    ObjectTutorialComponent
   ],
   imports: [
     BrowserModule,

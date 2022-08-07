@@ -1,3 +1,6 @@
+import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
+import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
+import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.component';
 import { SizerParentComponent } from './templates-section/sizer-parent/sizer-parent.component';
 import { SharingDataComponent } from './components-section/sharing-data/sharing-data.component';
 import { ComponentInteractionComponent } from './components-section/component-interaction/component-interaction.component';
@@ -10,6 +13,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+    {
+        path:'javascript',
+        component: JsTutorialComponent,
+        children: [
+            {
+                path:'array-tutorial',
+                component: ArrayTutorialComponent
+            },
+            {
+                path:'object-tutorial',
+                component: ObjectTutorialComponent
+            },
+        ]
+    },
     {
         path:'components',
         component: ComponentsComponent,
@@ -29,11 +46,6 @@ const routes: Routes = [
         ]
     },
     {
-        path:'directives',
-        component: DirectivesComponent,
-
-    },
-    {
         path:'templates',
         component: TemplatesComponent,
         children: [
@@ -44,9 +56,15 @@ const routes: Routes = [
         ]
     },
     {
+        path:'directives',
+        component: DirectivesComponent,
+
+    },
+    {
         path: '',
-        redirectTo: '/components',
-        pathMatch: 'full' }, // redirect to `components`
+        redirectTo: '/components', // redirect to `components`
+        pathMatch: 'full'
+    },
     {
         path: '**',
         component: PageNotFoundComponent
