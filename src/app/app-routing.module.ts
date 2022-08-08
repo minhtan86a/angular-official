@@ -1,3 +1,4 @@
+import { PromiseTutorialComponent } from './javascript/js-section/promise-tutorial/promise-tutorial.component';
 import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
 import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
 import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
             {
                 path:'object-tutorial',
                 component: ObjectTutorialComponent
+            },
+            {
+                path:'promise-tutorial',
+                component: PromiseTutorialComponent
             },
         ]
     },

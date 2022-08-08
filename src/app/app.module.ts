@@ -28,6 +28,7 @@ import { SizerParentComponent } from './templates-section/sizer-parent/sizer-par
 import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.component';
 import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
 import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
+import { PromiseTutorialComponent } from './javascript/js-section/promise-tutorial/promise-tutorial.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial
     SizerParentComponent,
     JsTutorialComponent,
     ArrayTutorialComponent,
-    ObjectTutorialComponent
+    ObjectTutorialComponent,
+    PromiseTutorialComponent
   ],
   imports: [
     BrowserModule,
