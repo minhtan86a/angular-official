@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { PostEntity } from '../model/post-entity';
 
 @Injectable({
@@ -36,25 +36,48 @@ export class PostService {
             //         }
             //     )
             // }
+        ).pipe(
+            catchError(this.handleError)
         );
     }
 
     //create a post
     createPost(post: PostEntity): Observable<PostEntity> {
-        return this.httpClient.post<PostEntity>(this.baseUrl, post);
+        return this.httpClient.post<PostEntity>(this.baseUrl, post).pipe(
+            catchError(this.handleError)
+        );
     }
 
     //update a post
     updatePost(postId: number, post: PostEntity): Observable<PostEntity> {
-        return this.httpClient.put<PostEntity>(this.baseUrl + `/${ postId }`, post);
+        return this.httpClient.put<PostEntity>(this.baseUrl + `/${ postId }`, post).pipe(
+            catchError(this.handleError)
+        );
     }
 
     //update a part of post
     updateOptionPost(postId: number, post: Partial<PostEntity>): Observable<PostEntity> {
-        return this.httpClient.patch<PostEntity>(this.baseUrl + `/${ postId }`, post);
+        return this.httpClient.patch<PostEntity>(this.baseUrl + `/${ postId }`, post).pipe(
+            catchError(this.handleError)
+        );
     }
 
     deletePost(postId: number): Observable<any> {
-        return this.httpClient.delete(this.baseUrl + `/${ postId }`);
+        return this.httpClient.delete(this.baseUrl + `/${ postId }`).pipe(
+            catchError(this.handleError)
+        );
+    }
+
+    private handleError(error: HttpErrorResponse) {
+        if (error.status === 0) {
+            // A client-side or network error occurred. Handle it accordingly.
+            console.error('An error occurred:', error.error);
+        } else {
+            // The backend returned an unsuccessful response code.
+            // The response body may contain clues as to what went wrong.
+            console.error(`Backend returned code ${error.status}, body was: `, error.error);
+        }
+        // Return an observable with a user-facing error message.
+        return throwError(() => new Error('Something bad happened; please try again later.'));
     }
 }

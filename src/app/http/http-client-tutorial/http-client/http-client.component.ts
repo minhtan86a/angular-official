@@ -33,8 +33,9 @@ export class HttpClientComponent implements OnInit {
         updatePatchPost.subscribe(rs => console.log(rs));
 
         //delete a post
+        //must subscribe to delete
         const deletePost = this.postService.deletePost(1);
-        deletePost.subscribe(rs => console.log(rs));
+        deletePost.subscribe();
     }
 
 }

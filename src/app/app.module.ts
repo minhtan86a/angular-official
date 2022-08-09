@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ComponentInteractionComponent } from './components-section/component-interaction/component-interaction.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,44 +31,42 @@ import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.compon
 import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
 import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
 import { PromiseTutorialComponent } from './javascript/js-section/promise-tutorial/promise-tutorial.component';
-
+import { httpInterceptorProviders } from './http/http-client-tutorial/http-interceptors';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ComponentsComponent,
-    DirectivesComponent,
-    TemplatesComponent,
-    PageNotFoundComponent,
-    LifecycleHooksComponent,
-    ParentComponent,
-    ChildComponent,
-    ComponentInteractionComponent,
-    HeroChildComponent,
-    HeroParentComponent,
-    NameChildComponent,
-    NameParentComponent,
-    VersionChildComponent,
-    VersionParentComponent,
-    VoterComponent,
-    VotetakerComponent,
-    CountdownTimerComponent,
-    CountdownParentComponent,
-    SharingDataComponent,
-    ItemDetailComponent,
-    SizerComponent,
-    SizerParentComponent,
-    JsTutorialComponent,
-    ArrayTutorialComponent,
-    ObjectTutorialComponent,
-    PromiseTutorialComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ComponentsComponent,
+        DirectivesComponent,
+        TemplatesComponent,
+        PageNotFoundComponent,
+        LifecycleHooksComponent,
+        ParentComponent,
+        ChildComponent,
+        ComponentInteractionComponent,
+        HeroChildComponent,
+        HeroParentComponent,
+        NameChildComponent,
+        NameParentComponent,
+        VersionChildComponent,
+        VersionParentComponent,
+        VoterComponent,
+        VotetakerComponent,
+        CountdownTimerComponent,
+        CountdownParentComponent,
+        SharingDataComponent,
+        ItemDetailComponent,
+        SizerComponent,
+        SizerParentComponent,
+        JsTutorialComponent,
+        ArrayTutorialComponent,
+        ObjectTutorialComponent,
+        PromiseTutorialComponent,
+    ],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    providers: [
+        httpInterceptorProviders
+    ],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

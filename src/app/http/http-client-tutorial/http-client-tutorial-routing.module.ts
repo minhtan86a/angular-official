@@ -1,3 +1,4 @@
+import { HttpAngularComponent } from './http-angular/http-angular.component';
 import { HttpClientComponent } from './http-client/http-client.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +12,12 @@ const routes: Routes = [
             {
                 path: 'http-client',
                 component: HttpClientComponent
+            },
+            {
+                path: 'http-angular',
+                component: HttpAngularComponent
             }
+
         ]
     },
 
