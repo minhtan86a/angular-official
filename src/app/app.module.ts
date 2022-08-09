@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentInteractionComponent } from './components-section/component-interaction/component-interaction.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +30,7 @@ import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.compon
 import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
 import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
 import { PromiseTutorialComponent } from './javascript/js-section/promise-tutorial/promise-tutorial.component';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { PromiseTutorialComponent } from './javascript/js-section/promise-tutori
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

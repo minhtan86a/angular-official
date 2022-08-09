@@ -1,0 +1,6 @@
+<div class="card mb-3" *ngFor="let p of post$ | async ">
+    <div class="card-body">
+        <h5 class="card-title">{{ p.title }}</h5>
+        <p class="card-text">{{ p.body }}</p>
+    </div>
+</div>

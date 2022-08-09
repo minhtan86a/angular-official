@@ -74,6 +74,9 @@ const routes: Routes = [
         path: 'form/form-tutorial',
         loadChildren: () => import('./form/form-tutorial/form-tutorial.module').then(m => m.FormTutorialModule) },
     {
+        path: 'http/http-client-tutorial',
+        loadChildren: () => import('./http/http-client-tutorial/http-client-tutorial.module').then(m => m.HttpClientTutorialModule) },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
