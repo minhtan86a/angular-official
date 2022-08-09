@@ -1,0 +1,90 @@
+<h5>Reactive using Form Builder</h5>
+<form novalidate [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+        <label for="firstName">First Name: </label>
+        <input
+            class="form-control"
+            type="text"
+            formControlName="firstName"
+        >
+        <div *ngIf="(firstName?.touched || firstName?.dirty) && firstName?.invalid" class="alert alert-danger" role="alert">
+            <div  *ngIf="firstName?.errors?.['required']">First Name is required</div>
+            <div  *ngIf="firstName?.errors?.['maxlength']">First Name is not more than {{firstName?.errors?.['maxlength']['requiredLength']}} characters</div>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="lastName">Last Name: </label>
+        <input
+            class="form-control"
+            type="text"
+            formControlName="lastName"
+        >
+        <div *ngIf="(lastName?.touched || lastName?.dirty) && lastName?.invalid" class="alert alert-danger" role="alert">
+            <div  *ngIf="lastName?.errors?.['required']">Last Name is required</div>
+            <div  *ngIf="lastName?.errors?.['maxlength']">Last Name is not more than {{lastName?.errors?.['maxlength']['requiredLength']}} characters</div>
+        </div>
+    </div>
+
+    <div formGroupName="address">
+        <h2>Address</h2>
+        <div class="form-group mb-3">
+            <label for="street">Street: </label>
+            <input class="form-control" id="street" type="text" formControlName="street">
+            <div *ngIf="(street?.touched || street?.dirty) && street?.invalid" class="alert alert-danger" role="alert">
+                <div  *ngIf="street?.errors?.['required']">Street is required</div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="city">City: </label>
+            <input class="form-control" id="city" type="text" formControlName="city">
+            <div *ngIf="(city?.touched || city?.dirty) && city?.invalid" class="alert alert-danger" role="alert">
+                <div  *ngIf="city?.errors?.['required']">City is required</div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="state">State: </label>
+            <input class="form-control" id="state" type="text" formControlName="state">
+            <div *ngIf="(state?.touched || state?.dirty) && state?.invalid" class="alert alert-danger" role="alert">
+                <div  *ngIf="state?.errors?.['required']">State is required</div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="zip">Zip Code: </label>
+            <input class="form-control" id="zip" type="text" formControlName="zip">
+            <div *ngIf="(zip?.touched || zip?.dirty) && zip?.invalid" class="alert alert-danger" role="alert">
+                <div  *ngIf="zip?.errors?.['required']">Zip is required</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Form -->
+    <div formArrayName="aliases" class="mb-3">
+        <h2>Aliases</h2>
+        <button class="btn btn-warning" type="button" (click)="addAlias()">+ Add another alias</button>
+
+        <div class="form-group mb-3" *ngFor="let alias of aliases.controls; let i=index">
+            <!-- The repeated alias template -->
+            <label for="alias-{{ i }}">Alias:</label>
+            <input class="form-control" id="alias-{{ i }}" type="text" [formControlName]="i">
+            <button class="btn btn-danger" (click)="removeTel(i)">-</button>
+        </div>
+    </div>
+
+
+    <p>Complete the form to enable button.</p>
+    <button
+        class="btn btn-primary me-3"
+        type="submit"
+        [disabled]="!profileForm.valid">
+        Submit
+    </button>
+
+</form>
+
+<p>Form Status: {{ profileForm.status }}</p>
+
+

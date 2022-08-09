@@ -1,0 +1,93 @@
+<h5>Template Driven Form</h5>
+<form novalidate #f="ngForm" (ngSubmit)="contact(f.value)">
+    <fieldset ngModelGroup="name">
+        <div class="form-group mb-3">
+            <label>First Name</label>
+            <input
+                #firstName="ngModel"
+                type="text"
+                class="form-control shadow-none"
+                name="firstName"
+                ngModel
+                placeholder="First Name"
+                required
+                maxlength="15"
+              >
+            <div class="alert alert-danger" *ngIf="(firstName.touched || firstName.dirty) && firstName.invalid">
+                <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
+                <div *ngIf="firstName.errors?.['maxlength']">First Name must not exceed 15 characters.</div>
+            </div>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label>Last Name</label>
+            <input
+                #lastName="ngModel"
+                type="text"
+                class="form-control shadow-none"
+                name="lastName"
+                ngModel
+                placeholder="Last Name"
+                required
+                maxlength="15"
+              >
+            <div class="alert alert-danger" *ngIf="(lastName.touched || lastName.dirty) && lastName.invalid">
+                <div *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+                <div *ngIf="lastName.errors?.['maxlength']">Last Name must not exceed 15 characters.</div>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-group mb-3">
+        <label>Email</label>
+        <input
+            #email="ngModel"
+            type="email"
+            class="form-control shadow-none"
+            name="email"
+            ngModel
+            placeholder="Email"
+            email
+            required
+            >
+        <div class="alert alert-danger" *ngIf="(email.touched || email.dirty) && email.invalid">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['email']">Email is not valid.</div>
+        </div>
+    </div>
+
+
+    <div class="form-group mb-3">
+        <label>Phone</label>
+        <input
+            #phone="ngModel"
+            type="text"
+            class="form-control shadow-none"
+            name="tel"
+            ngModel
+            required
+            minlength="8"
+            maxlength="10"
+            pattern="[0-9]{8,10}"
+            >
+        <div class="alert alert-danger" *ngIf="(phone.touched || phone.dirty) && phone.invalid">
+            <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+            <div *ngIf="phone.errors?.['minlength']">Phone must more than 8 characters.</div>
+            <div *ngIf="phone.errors?.['maxlength']">Phone must not exceed 10 characters.</div>
+            <div *ngIf="phone.errors?.['pattern']">Phone is not valid.</div>
+        </div>
+    </div>
+
+
+    <div class="form-group mb-3">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="f.invalid"
+          >Submit</button>
+    </div>
+</form>
+
+

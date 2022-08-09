@@ -71,6 +71,9 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'form/form-tutorial',
+        loadChildren: () => import('./form/form-tutorial/form-tutorial.module').then(m => m.FormTutorialModule) },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
