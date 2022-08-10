@@ -2,10 +2,10 @@ import { PromiseTutorialComponent } from './javascript/js-section/promise-tutori
 import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
 import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/array-tutorial.component';
 import { JsTutorialComponent } from './javascript/js-tutorial/js-tutorial.component';
-import { SizerParentComponent } from './templates-section/sizer-parent/sizer-parent.component';
-import { SharingDataComponent } from './components-section/sharing-data/sharing-data.component';
-import { ComponentInteractionComponent } from './components-section/component-interaction/component-interaction.component';
-import { LifecycleHooksComponent } from './components-section/lifecycle-hooks/lifecycle-hooks.component';
+import { SizerParentComponent } from './templates/templates-section/sizer-parent/sizer-parent.component';
+import { SharingDataComponent } from './components/components-section/sharing-data/sharing-data.component';
+import { ComponentInteractionComponent } from './components/components-section/component-interaction/component-interaction.component';
+import { LifecycleHooksComponent } from './components/components-section/lifecycle-hooks/lifecycle-hooks.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { DirectivesComponent } from './directives/directives.component';
