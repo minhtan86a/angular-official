@@ -12,6 +12,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { ComponentsComponent } from './components/components.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
     {
@@ -71,11 +72,14 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'form/form-tutorial',
+        path: 'form-tutorial',
         loadChildren: () => import('./form/form-tutorial/form-tutorial.module').then(m => m.FormTutorialModule) },
     {
-        path: 'http/http-client-tutorial',
+        path: 'http-client-tutorial',
         loadChildren: () => import('./http/http-client-tutorial/http-client-tutorial.module').then(m => m.HttpClientTutorialModule) },
+    {
+        path: 'router-tutorial',
+        loadChildren: () => import('./router/router-tutorial/router-tutorial.module').then(m => m.RouterTutorialModule) },
     {
         path: '**',
         component: PageNotFoundComponent
@@ -83,7 +87,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)], //{ enableTracing: !environment.production }
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
