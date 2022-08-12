@@ -81,6 +81,9 @@ const routes: Routes = [
         path: 'router-tutorial',
         loadChildren: () => import('./router/router-tutorial/router-tutorial.module').then(m => m.RouterTutorialModule) },
     {
+        path: 'rxjs-tutorial',
+        loadChildren: () => import('./rxjs/rxjs-tutorial/rxjs-tutorial.module').then(m => m.RxjsTutorialModule) },
+    {
         path: '**',
         component: PageNotFoundComponent
     }

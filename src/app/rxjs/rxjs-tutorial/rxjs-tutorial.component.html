@@ -1,0 +1,38 @@
+<p>Creation:	<b>from, fromEvent, of</b></p>
+<p>Combination:	<b>combineLatest, concat, merge, startWith , withLatestFrom, zip</b></p>
+<p>Filtering:	<b>debounceTime, distinctUntilChanged, filter, take, takeUntil</b></p>
+<p>Transformation:	<b>bufferTime, concatMap, map, mergeMap, scan, switchMap</b></p>
+<p>Utility:	<b>tap</b></p>
+<p>Multicasting:	<b>share</b></p>
+
+<ul>
+    <li *ngFor="let data of combineData$ | async ">
+
+        <ng-container *ngFor="let u of data.userById">
+            <p><b>Name:</b> {{ u.name }} | <b>Username:</b> {{ u.username }}</p>
+        </ng-container>
+
+        <ng-container *ngFor="let p of data.postsByUser | slice:0:3">
+            <p><b>Id:</b> {{ p.id }} </p>
+            <p><b>Title:</b> {{ p.title }} </p>
+            <p><b>Body:</b> {{ p.body }} </p>
+        </ng-container>
+    </li>
+</ul>
+
+<hr/>
+
+<ul>
+    <li *ngIf="userWithPosts$ | async as data ">
+
+        <ng-container *ngFor="let u of data.user">
+            <p><b>Name:</b> {{ u.name }} | <b>Username:</b> {{ u.username }}</p>
+        </ng-container>
+
+        <ng-container *ngFor="let p of data.posts | slice:0:3">
+            <p><b>Id:</b> {{ p.id }} </p>
+            <p><b>Title:</b> {{ p.title }} </p>
+            <p><b>Body:</b> {{ p.body }} </p>
+        </ng-container>
+    </li>
+</ul>
