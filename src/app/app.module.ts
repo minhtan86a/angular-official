@@ -32,6 +32,7 @@ import { ArrayTutorialComponent } from './javascript/js-section/array-tutorial/a
 import { ObjectTutorialComponent } from './javascript/js-section/object-tutorial/object-tutorial.component';
 import { PromiseTutorialComponent } from './javascript/js-section/promise-tutorial/promise-tutorial.component';
 import { httpInterceptorProviders } from './http/http-client-tutorial/http-interceptors';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -63,7 +64,7 @@ import { httpInterceptorProviders } from './http/http-client-tutorial/http-inter
         ObjectTutorialComponent,
         PromiseTutorialComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
     providers: [
         httpInterceptorProviders
     ],

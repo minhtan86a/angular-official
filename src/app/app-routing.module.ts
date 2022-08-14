@@ -84,6 +84,9 @@ const routes: Routes = [
         path: 'rxjs-tutorial',
         loadChildren: () => import('./rxjs/rxjs-tutorial/rxjs-tutorial.module').then(m => m.RxjsTutorialModule) },
     {
+        path: 'material-ui-tutorial',
+        loadChildren: () => import('./material-ui/material-ui-tutorial/material-ui-tutorial.module').then(m => m.MaterialUiTutorialModule) },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
