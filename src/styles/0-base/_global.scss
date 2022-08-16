@@ -2,4 +2,11 @@
 GLOBAL
 LAYOUT AND COMMON STYLES
 =========================*/
+html, body { height: 100%;  }
+body { margin: 0;  }
 
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+  $font-family: '"Poppins", sans-serif;'
+);
+@include mat-core($custom-typography);

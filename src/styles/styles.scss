@@ -10,14 +10,3 @@
 @import './0-base/base-dir';
 @import './1-pages/pages-dir';
 @import './2-modules/modules-dir';
-
-
-
-html, body { height: 100%; }
-body { margin: 0; }
-
-@import '~@angular/material/theming';
-$custom-typography: mat-typography-config(
-  $font-family: '"Poppins", sans-serif;'
-);
-@include mat-core($custom-typography);
